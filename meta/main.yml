@@ -1,0 +1,30 @@
+galaxy_info:
+  author: Charles Gardner <charles@opsroll.com>
+  description: An Ansible role to Install and configure Yubikey applications and libraries on Arch, Ubuntu and macOS
+  company: Opsroll
+  license: license (GPLv2, CC-BY, etc)
+  
+  min_ansible_version: 1.2
+
+  # supported platforms
+  platforms:
+  - name: Darwin
+    versions:
+    - all
+  - name: Archlinux
+    versions:
+    - all
+  - name: Ubuntu
+    versions:
+    - trusty
+  
+  galaxy_tags:
+    - yubikey
+    - smartcard
+    - auth
+    - security
+
+dependencies:
+  - name: XCode Tools
+    role: xcode
+    when: (ansible_os_family == "Darwin")
