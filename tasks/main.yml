@@ -1,0 +1,17 @@
+---
+# tasks file for yubikey
+- name: Install Linux groups
+  include: linux.yml
+  when: (ansible_os_family == "Linux"
+
+- name: Install Yubikey and dependencies for Ubuntu
+  include: ubuntu.yml
+  when: (ansible_distribution == "Ubuntu" and ansible_distribution_major_version == "14")
+
+- name: Install Yubikey and dependencies for Arch
+  include: ubuntu.yml
+  when: (ansible_distribution == "Arch Linux")
+
+- name: Install Yubikey and dependencies for macOS
+  include: macOS.yml
+  when: (ansible_os_family == "Darwin")
