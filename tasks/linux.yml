@@ -1,0 +1,18 @@
+---
+
+- name: Create Yubikey group for device access.
+  group: >
+    name=yubikey
+    gid=2444
+    state=present
+  tags:
+    - system
+
+- name: Install udev rule for allowing group access to Yubikey
+  copy: >
+    backup=yes
+    src=files/70-yubikey.rules
+    dest=/etc/udev/rules.d/70-yubikey.rules
+  notify:
+    - udev reload
+    - udev trigger
