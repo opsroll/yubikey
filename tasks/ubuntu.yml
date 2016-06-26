@@ -1,0 +1,15 @@
+---
+- name: Update apt cache
+  apt: >
+    update_cache=yes
+    cache_valid_time=120
+
+- name: Install yubikey-personalization
+  package: >
+    name=yubikey-personalization
+    state=present
+
+- name: Install yubikey-ksm
+  package: >
+    name=yubikey-ksm
+    state=present
