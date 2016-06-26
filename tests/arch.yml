@@ -1,0 +1,50 @@
+---
+
+- name: Assert ykpersonalize is installed
+  shell: which ykpersonalize
+  register: ykpersonalize
+- assert:
+    that:
+      - "'/usr/bin/ykpersonalize' in '{{ykpersonalize.stdout}}'"
+
+- name: Assert ykinfo is installed
+  shell: which ykinfo
+  register: ykinfo
+- assert:
+    that:
+      - "'/usr/bin/ykinfo' in '{{ykinfo.stdout}}'"
+
+- name: Assert ykchalresp is installed
+  shell: which ykchalresp
+  register: ykchalresp
+- assert:
+    that:
+      - "'/usr/bin/ykchalresp' in '{{ykchalresp.stdout}}'"
+
+- name: Assert ykpamcfg is installed
+  shell: which ykpamcfg
+  register: ykpamcfg
+- assert:
+    that:
+      - "'/usr/bin/ykpamcfg' in '{{ykpamcfg.stdout}}'"
+
+- name: Assert ykgenerate is installed
+  shell: which ykgenerate
+  register: ykgenerate
+- assert:
+    that:
+      - "'/usr/bin/ykgenerate' in '{{ykgenerate.stdout}}'"
+
+- name: Assert ykparse is installed
+  shell: which ykparse
+  register: ykparse
+- assert:
+    that:
+      - "'/usr/bin/ykparse' in ykparse.stdout"
+
+- name: Assert ykclient is installed
+  shell: which ykclient
+  register: ykclient
+- assert:
+    that:
+      - "'/usr/bin/ykclient' in ykclient.stdout"

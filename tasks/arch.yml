@@ -1,0 +1,19 @@
+---
+- name: Update pacman cache
+  pacman: >
+    update_cache=yes
+
+- name: Install yubikey-personalization
+  pacman: >
+    name=yubikey-personalization
+    state=present
+
+- name: Install yubico-pam
+  pacman: >
+    name=yubico-pam
+    state=present
+
+- name: Install libu2f-host
+  pacman: >
+    name=libu2f-host
+    state=present
