@@ -1,0 +1,17 @@
+---
+- hosts: all
+  sudo: true
+  roles:
+    - yubikey
+  post_tasks:
+    - name: Run Assertions for Ubuntu
+      include: ubuntu.yml
+      when: (ansible_distribution == "Ubuntu" and ansible_distribution_major_version == "14")
+
+    - name: Run Assertions for Arch
+      include: arch.yml
+      when: (ansible_distribution == "Archlinux")
+    
+    - name: Run Assertions for macOS
+      include: macOS.yml
+      when: (ansible_os_family == "Darwin")
