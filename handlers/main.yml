@@ -1,0 +1,7 @@
+---
+# handlers file for yubikey
+- name: "udev reload"
+  action: command /usr/bin/udevadm control --reload
+ 
+- name: "udev trigger"
+  action: command /usr/bin/udevadm trigger
