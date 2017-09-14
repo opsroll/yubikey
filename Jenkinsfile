@@ -4,7 +4,10 @@ pipeline {
     stages {
         stage('Lint') {
             steps {
-                sh '. .envrc && ansible-lint -x ANSIBLE0004,ANSIBLE0006,ANSIBLE0008,ANSIBLE0015,ANSIBLE0012,ANSIBLE0011,ANSIBLE0013,ANSIBLE0010'
+                sh """
+                  source .envrc
+                  ansible-lint -x ANSIBLE0004,ANSIBLE0006,ANSIBLE0008,ANSIBLE0015,ANSIBLE0012,ANSIBLE0011,ANSIBLE0013,ANSIBLE0010
+                """
             }
         }
         stage('Test'){
